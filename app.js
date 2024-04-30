@@ -27,11 +27,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // MQTT options
 const mqttOptions = {
-  host: "a2dfcf7d2fde4d719cbda072dd814b18.s1.eu.hivemq.cloud",
+  host: "mqtthost.s1.eu.hivemq.cloud",
   port: 8883,
   protocol: "mqtts",
-  username: "Handsome",
-  password: "Handsome12345",
+  username: "usernameAccess",
+  password: "password",
 };
 // Initialize the MQTT client
 const mqttClient = mqtt.connect(mqttOptions);
