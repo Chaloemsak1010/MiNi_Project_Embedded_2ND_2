@@ -1,7 +1,11 @@
+// IDEA: Use a website as a publisher, passing data via an API to send topics and messages to HiveMQTT.
+//       ESP32 devices will subscribe to HiveMQTT to receive these messages to turn on FAN and LED.
+
+// Author : Chaloemsak Arsung
 //////////////////////////////////////////////////////////////////
 // ======================= Dev: Mike016 ======================= //
 //////////////////////////////////////////////////////////////////
-// this code: Middle Man ( API )
+
 // Import 
 const express = require("express");
 const mqtt = require("mqtt");
@@ -83,7 +87,7 @@ app.listen(PORT, () => {
   console.log("// ======================= Dev: Mike016 ======================= //");
   console.log('//////////////////////////////////////////////////////////////////');
 });
-// For sub
+// Example for subscriber data (Optional)
 // // Define a variable to store the latest MQTT message 
 // let latestMessage = "";
 // //Subscribe to the 'temp' topic
