@@ -1,29 +1,48 @@
-<!-- this code: DashBoard Toggle switch -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MQTT Publisher</title>
-    <style>
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }        
-    </style>
+    <title>MQTT Publisher Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>MQTT Publisher</h1>
-    <button id="btnLed" > Button for Led </button>
-    <button id="btnFan" >Button for Fan </button>
-
+<!--  Author : Chaloemsak Arsung
+     //////////////////////////////////////////////////////////////////
+     // ======================= Dev: Mike016 ======================= //
+     ////////////////////////////////////////////////////////////////// -->
+    <div class="container">
+        <h1 class="mt-5 mb-5">MQTT Publisher</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <button id="btnLed" class="btn btn-primary btn-block mb-3">
+                    <i class="fas fa-lightbulb mr-2"></i>Button for Led
+                </button>
+            </div>
+            <div class="col-md-6">
+                <button id="btnFan" class="btn btn-primary btn-block mb-3">
+                    <i class="fas fa-fan mr-2"></i>Button for Fan
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS  -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Font Awesome JS  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <script>
-        // topic : led fan 
-        var onLed = false ;
-        var onFan = false ;
+        // value for led
+        var onLed = false;
+        // value for fan
+        var onFan = false;
+        // Togle btn for Led
+        // topic and msg => led : (true or false)
         document.getElementById('btnLed').addEventListener('click', async function () {
-            // const message = document.getElementById('message').value;
             onLed = !onLed;
             let options = {
                 method: 'POST',
@@ -31,19 +50,25 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    topic: 'led', 
+                    topic: 'led',
                     message: onLed.toString()
                 })
             }
-
-            let response = await fetch('http://localhost:3000/publish', options);
-            if (response.ok) {
-                alert('Message published successfully');
-            } else {
-                alert('Failed to publish messagedddd');
+            // public topic and msg to hive mqtt passed with API route 
+            try {
+                let response = await fetch('http://localhost:3000/publish', options);
+                if (response.ok) {
+                    alert('Message published successfully');
+                } else {
+                    alert('Failed to publish message');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to publish message');
             }
-
         });
+        // Togle btn for Led
+        // topic and msg => fan : (true or false)
         document.getElementById('btnFan').addEventListener('click', async function () {
             // const message = document.getElementById('message').value;
             onFan = !onFan;
@@ -58,16 +83,19 @@
                     message: onFan.toString()
                 })
             }
-
-            let response = await fetch('http://localhost:3000/publish', options);
-            if (response.ok) {
-                alert('Message published successfully');
-            } else {
-                alert('Failed to publish messagedddd');
+            // public topic and msg to hive mqtt passed with API route 
+            try {
+                let response = await fetch('http://localhost:3000/publish', options);
+                if (response.ok) {
+                    alert('Message published successfully');
+                } else {
+                    alert('Failed to publish message');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to publish message');
             }
-
         });
     </script>
 </body>
-
 </html>
