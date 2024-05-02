@@ -3,7 +3,7 @@
 // ======================= Dev: Mike016 ======================= //
 //////////////////////////////////////////////////////////////////
 
-// Test to be subscriber (Open new vs code to run this code on your pc)
+// Test to be subscriber (Open new window VScode to run this code on your pc)
 const mqtt = require("mqtt");
 // MQTT options
 const mqttOptions = {
