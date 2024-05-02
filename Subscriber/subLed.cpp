@@ -1,18 +1,21 @@
-// sub 01 red lab8
-// running on port => com06
-// pin Led 23 
+// Author : Chaloemsak Arsung
+
+// Led pin => 23 
 #include <Arduino.h>
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
 #include <PubSubClient.h>
 // WiFi Connection details
-const char *ssid = "god";
-const char *password = "mike2003";
+// WiFi Connection details
+const char *ssid = "YOURWIFI";
+const char *password = "YOURPASSWORDFORWIFI";
+
 // HiveMQ Cloud Broker details
-const char *mqtt_broker = "a2dfcf7d2fde4d719cbda072dd814b18.s1.eu.hivemq.cloud";
-const char *mqtt_username = "Handsome";
-const char *mqtt_password = "Handsome12345";
+const char *mqtt_broker = "YOURhivemqtthostURL.s1.eu.hivemq.cloud";
+const char *mqtt_username = "usernameAccess";
+const char *mqtt_password = "password";
 const int mqtt_port = 8883; // Usually 8883 for TLS
+
 WiFiClientSecure espClient;
 PubSubClient client(espClient);
 void callback(char *topic, byte *payload, unsigned int length)
