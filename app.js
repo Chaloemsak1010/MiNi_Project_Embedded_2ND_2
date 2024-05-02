@@ -82,10 +82,11 @@ app.get("/home", (req, res) => {
 // Start the Express server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`\nServer is running on port ${PORT}\n`);
+  console.log("Author : Chaloemsak Arsung");
   console.log('//////////////////////////////////////////////////////////////////');
   console.log("// ======================= Dev: Mike016 ======================= //");
-  console.log('//////////////////////////////////////////////////////////////////');
+  console.log('//////////////////////////////////////////////////////////////////\n');
 });
 // Example for subscriber data (Optional)
 // // Define a variable to store the latest MQTT message 
