@@ -1,17 +1,17 @@
-// [com 22]
+// Author : Chaloemsak Arsung
 #include <Arduino.h>
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
 #include <PubSubClient.h>
 
 // WiFi Connection details
-const char *ssid = "god";
-const char *password = "mike2003";
+const char *ssid = "YOURWIFI";
+const char *password = "YOURPASSWORDFORWIFI";
 
 // HiveMQ Cloud Broker details
-const char *mqtt_broker = "a2dfcf7d2fde4d719cbda072dd814b18.s1.eu.hivemq.cloud";
-const char *mqtt_username = "Handsome";
-const char *mqtt_password = "Handsome12345";
+const char *mqtt_broker = "YOURhivemqtthostURL.s1.eu.hivemq.cloud";
+const char *mqtt_username = "usernameAccess";
+const char *mqtt_password = "password";
 const int mqtt_port = 8883; // Usually 8883 for TLS
 
 WiFiClientSecure espClient;
